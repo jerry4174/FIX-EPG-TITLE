@@ -4,7 +4,10 @@
 #  Input is local epg.xml
 #  The result is fixed_epg.xml
 #  which contains all EPG records.
-#####################
+# to do:
+# load https://tvpass.org/epg.xml
+# make url from fixed_epg.xml for load to IPTVnator
+#####################################################
 
 
 import xml.etree.ElementTree as ET
