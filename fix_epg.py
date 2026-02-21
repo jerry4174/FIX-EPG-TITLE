@@ -5,12 +5,27 @@
 #  The result is fixed_epg.xml
 #  which contains all EPG records.
 # to do:
-# load https://tvpass.org/epg.xml
+# load https://tvpass.org/epg.xml  ok 21.2.2026
 # make url from fixed_epg.xml for load to IPTVnator
 #####################################################
 
 
 import xml.etree.ElementTree as ET
+import requests
+
+# --- SETTINGS ---
+EPG_URL = "https://tvpass.org/epg.xml"
+SAVE_PATH = "/mnt/data/FIX-EPG-TITLE/epg.xml"
+OUTPUT_FILE = "fixed.xml"
+PORT = 8080
+
+def download_epg():
+    print(f"Downloading fresh EPG from {EPG_URL}...")
+    response = requests.get(EPG_URL, timeout=30)
+    with open(SAVE_PATH, 'wb') as f:
+        f.write(response.content)
+    print("Download complete.")
+
 
 tree = ET.parse('epg.xml')
 root = tree.getroot()
@@ -24,7 +39,7 @@ for programme in root.findall('programme'):
     if title is not None and title.text == "Movie" and subtitle is not None:
         title.text = subtitle.text  # Move the movie name to the Title
         print(f"Fixed [{channel_id}]:  {title.text}")
-    else:
-        print(f"Non Fixed [{channel_id}]:{title.text}")
+    # else:
+    #    print(f"Non Fixed [{channel_id}]:{title.text}")
 
 tree.write('fixed_epg.xml', encoding='utf-8', xml_declaration=True)
