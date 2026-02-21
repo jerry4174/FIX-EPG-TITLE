@@ -1,4 +1,4 @@
-This program repair original <title>Movie</title> in the https://tvpass.org/epg.xml
+This program repair <title>Movie</title> in the https://tvpass.org/epg.xml
 
 Steps:
 - Load https://tvpass.org/epg.xml
