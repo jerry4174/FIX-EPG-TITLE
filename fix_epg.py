@@ -4,9 +4,10 @@
 #  Input is local epg.xml
 #  The result is fixed_epg.xml
 #  which contains all EPG records.
-# to do:
-# load https://tvpass.org/epg.xml  ok 21.2.2026
-# make url from fixed_epg.xml for load to IPTVnator ok 21.2.2026
+# to do/done:
+# 21.2.2026 load https://tvpass.org/epg.xml  ok
+# 21.2.2026 make url from fixed_epg.xml for load to IPTVnator ok
+# 23.2.2026 function sequence corrected (def)
 #################################################################
 
 
