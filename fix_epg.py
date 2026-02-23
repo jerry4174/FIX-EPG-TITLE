@@ -29,10 +29,13 @@ def download_epg():
         f.write(response.content)
     print("Download complete.")
 
+download_epg()
+
 def process_xml():
     tree = ET.parse(SAVE_PATH)
     root = tree.getroot()
     new_root = ET.Element('tv')
+process_xml()
 
 tree = ET.parse('epg.xml')
 root = tree.getroot()
@@ -70,8 +73,8 @@ def start_server():
 # --- EXECUTION ---
 if __name__ == "__main__":
     try:
-        download_epg()
-        process_xml()
+    #    download_epg()
+    #    process_xml()
 
         server_thread = threading.Thread(target=start_server, daemon=True)
         server_thread.start()
