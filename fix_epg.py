@@ -21,6 +21,7 @@ import requests
 EPG_URL = "https://tvpass.org/epg.xml"
 SAVE_PATH = "/mnt/data/FIX-EPG-TITLE/epg.xml"
 OUTPUT_FILE = "fixed.xml"
+OUTPUT_FILE_PATH = "/mnt/data/FIX-EPG-TITLE/fixed.xml"
 PORT = 8080
 
 def download_epg():
@@ -38,7 +39,7 @@ def process_xml():
     new_root = ET.Element('tv')
 process_xml()
 
-tree = ET.parse('epg.xml')
+tree = ET.parse(SAVE_PATH)
 root = tree.getroot()
 
 
@@ -50,10 +51,10 @@ for programme in root.findall('programme'):
     if title is not None and title.text == "Movie" and subtitle is not None:
         title.text = subtitle.text  # Move the movie name to the Title
         print(f"Fixed [{channel_id}]:  {title.text}")
-    else:
-       print(f"Non Fixed [{channel_id}]:{title.text}")
+ #   else:
+  #     print(f"Non Fixed [{channel_id}]:{title.text}")
 
-tree.write('fixed_epg.xml', encoding='utf-8', xml_declaration=True)
+tree.write(OUTPUT_FILE_PATH, encoding='utf-8', xml_declaration=True)
 
 # --- SERVER LOGIC ---
 class Handler(http.server.SimpleHTTPRequestHandler):
@@ -80,6 +81,6 @@ if __name__ == "__main__":
         server_thread = threading.Thread(target=start_server, daemon=True)
         server_thread.start()
 
-        input("\nPress ENTER to shut down the server and exit.\n")
+     #   input("\nPress ENTER to shut down the server and exit.\n")
     except Exception as e:
         print(f"An error occurred: {e}")
