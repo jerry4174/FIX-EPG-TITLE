@@ -81,6 +81,6 @@ if __name__ == "__main__":
         server_thread = threading.Thread(target=start_server, daemon=True)
         server_thread.start()
 
-     #   input("\nPress ENTER to shut down the server and exit.\n")
+        input("\nPress ENTER to shut down the server and exit.\n")
     except Exception as e:
         print(f"An error occurred: {e}")
