@@ -17,6 +17,7 @@ import requests
 EPG_URL = "https://tvpass.org/epg.xml"
 SAVE_PATH = "/mnt/data/FIX-EPG-TITLE/epg.xml"
 OUTPUT_FILE = "fixed_epg1.xml"
+OUTPUT_FILE_PATH = "/mnt/data/FIX-EPG-TITLE/fixed_epg1.xml"
 PORT = 8080
 
 #   download_epg():
@@ -43,7 +44,7 @@ for programme in root.findall('programme'):
             title.text = subtitle.text  # Move the movie name to the Title
             print(f"Fixed [{channel_id}]: {title.text}")
 
-tree.write('fixed_epg1.xml', encoding='utf-8', xml_declaration=True)
+tree.write(OUTPUT_FILE_PATH, encoding='utf-8', xml_declaration=True)
 
 # --- SERVER LOGIC ---
 class Handler(http.server.SimpleHTTPRequestHandler):
