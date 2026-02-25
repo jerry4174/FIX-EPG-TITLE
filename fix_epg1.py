@@ -5,7 +5,7 @@
 #  Input is local epg.xml
 #  The result is fixed_epg1.xml
 #  which contains all EPG records.
-#
+#  25.02.2026 Last version
 #####################
 import xml.etree.ElementTree as ET
 import http.server
