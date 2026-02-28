@@ -14,8 +14,8 @@ Steps:
 ## Usage
 - If the EPG is out of time (USA - Europe difference) a reload must be done.  
 - Kill the  the program:
---   ps -ef|grep epg
---   sudo kill id of run_epg.sh
+- ps -ef|grep epg
+- sudo kill id of run_epg.sh
 - Go to working directory
 - Start the shell:./run_epg.sh
 - check in log file:  
