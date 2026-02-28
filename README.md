@@ -14,11 +14,12 @@ Steps:
 ## Usage
 - If the EPG is out of time (USA - Europe difference) a reload must be done.  
 - Kill the  the program:
-- ps -ef|grep epg
-- sudo kill id of run_epg.sh
+    - ps -ef|grep epg
+    - sudo kill id of run_epg.sh
 - Go to working directory
-- Start the shell:./run_epg.sh
-- check in log file:  
+    - Start the shell:./run_epg.sh
+    - check in the log file:
+  
 SUCCESS! Server is running.
 In IPTVnator, use EPG URL: http://localhost:8080/fixed_epg1.xml
 - IPTVnator Settings: CLEAR EPG DATA, refresh http://localhost:8080/fixed_epg1.xml
