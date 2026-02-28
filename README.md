@@ -11,7 +11,17 @@ Steps:
 - Program starts with anacron after boot - see in log.txt
 - Starting with the script run_epg.sh
 
-
+## Usage
+- If the EPG is out of time (USA - Europe difference) a reload must be done.  
+- Kill the  the program:
+-   ps -ef|grep epg
+-   sudo kill id
+- Go to working directory
+- Start the shell:./run_epg.sh
+- check in log file:  
+SUCCESS! Server is running.
+In IPTVnator, use EPG URL: http://localhost:8080/fixed_epg1.xml
+- IPTVnator Settings: CLEAR EPG DATA, refresh http://localhost:8080/fixed_epg1.xml
 
 
 ## License 
