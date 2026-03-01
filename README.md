@@ -8,22 +8,20 @@ Steps:
 - Load https://tvpass.org/epg.xml
 - Change <title>Movie</title> with real movie name from <sub_title>Movie Name</sub_title>
 - Changed fixed_epg1.xml set to URL: http://localhost:8080/fixed_epg1.xml for load to IPTVnator 
-- Program starts with anacron after boot - see in log.txt
-- Starting with the script run_epg.sh
+
+## Configuration
+In: /etc/systemd/system/epg-fix.service
+- alias epg-start='sudo systemctl start epg-fix.service && echo "EPG Server Started."'
+- alias epg-stop='sudo systemctl stop epg-fix.service && echo "EPG Server Stopped."'
+- alias epg-check='systemctl status epg-fix.service'
+
+
 
 ## Usage
-- If the EPG is out of time (USA - Europe difference) a reload must be done.  
-- Kill the  the program:
-    - ps -ef|grep epg
-    - sudo kill id of run_epg.sh
-- Go to working directory
-    - Start the shell:./run_epg.sh
-    - check in the log file:
-  
-SUCCESS! Server is running.
-In IPTVnator, use EPG URL: http://localhost:8080/fixed_epg1.xml
-- IPTVnator Settings: CLEAR EPG DATA, refresh http://localhost:8080/fixed_epg1.xml
-
+- Start program with epg-start
+- Stop program with epg-stop
+- Check program running with epg-check
+- Show log with journalctl -u epg-fix.service --no-pager
 
 ## License 
 Distributed under the MIT License. See https://en.wikipedia.org/wiki/MIT_License for more information.
